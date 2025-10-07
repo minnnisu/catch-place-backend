@@ -57,10 +57,10 @@ public class Booth {
     private LocalDateTime endDate;
 
     @Column(nullable = false)
-    private LocalDateTime openTime;
+    private java.time.LocalTime openTime;
 
     @Column(nullable = false)
-    private LocalDateTime endTime;
+    private java.time.LocalTime endTime;
 
 
     @CreationTimestamp
