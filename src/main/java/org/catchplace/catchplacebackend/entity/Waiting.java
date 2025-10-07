@@ -57,7 +57,7 @@ public class Waiting {
 
     @UpdateTimestamp
     @Column(nullable = false)
-    private LocalDateTime statusUpdatedAt; // 현재 상태 업데이트 시간
+    private LocalDateTime updatedAt;
 
     // 상태 변경 메서드
     public void updateStatus(WaitingStatus newStatus) {
