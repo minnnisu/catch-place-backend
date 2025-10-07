@@ -30,7 +30,7 @@ public class Booth {
     @Column(nullable = false, length = 200)
     private String location;
 
-    @OneToMany(mappedBy = "booth", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "booth", orphanRemoval = true, fetch = FetchType.LAZY)
     @Builder.Default
     private List<BoothCategory> boothCategories = new ArrayList<>();
 

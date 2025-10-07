@@ -46,7 +46,7 @@ public class User implements OAuth2User {
     @Builder.Default
     private UserRole role = UserRole.VISITOR;
 
-    @OneToMany(mappedBy = "operator", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "operator", fetch = FetchType.LAZY)
     @Builder.Default
     private List<Booth> operatedBooths = new ArrayList<>();
 
@@ -64,16 +64,16 @@ public class User implements OAuth2User {
 
     @Override
     public Map<String, Object> getAttributes() {
-        return null;
+        return Collections.emptyMap();
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.singleton((GrantedAuthority) () -> role.getKey());
+        return Collections.singleton(new org.springframework.security.core.authority.SimpleGrantedAuthority(role.getKey()));
     }
 
     @Override
     public String getName() {
-        return name;
+        return snsId;
     }
 }
